@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: mycv
   # You'll usually want to add your resources to the argocd namespace.
-  namespace: default
+  namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/devabolmasov/argocd.git  # Can point to either a Helm chart repo or a git repo.
     targetRevision: main  # For Helm, this refers to the chart version.
-    path: /manifests  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    path: manifests  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 
   # Destination cluster and namespace to deploy the application
   destination:
