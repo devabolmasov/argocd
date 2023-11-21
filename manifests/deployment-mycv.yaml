@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: mycv
-          image: registry.gitlab.com/itoutposts1/app1-golang:mycv1
+          image: registry.gitlab.com/itoutposts1/app1-golang:mycv
           ports:
             - containerPort: 80
       imagePullSecrets:
