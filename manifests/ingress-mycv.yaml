@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mycv-ingress
+  namespace: mycv
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+        - pathType: Prefix
+          backend:
+            service:
+              name: mycv-svc
+              port:
+                number: 80
+          path: /
