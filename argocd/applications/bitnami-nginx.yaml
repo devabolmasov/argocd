@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bitnami
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: mycv-project
+  source:
+    repoURL: https://github.com/bitnami/charts.git
+    targetRevision: HEAD
+    path: bitnami/nginx
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: bitnami
+  syncPolicy:
+    automated: 
+      prune: true 
+      selfHeal: true 
+    syncOptions:     
+    - CreateNamespace=true
